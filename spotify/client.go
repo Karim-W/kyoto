@@ -86,3 +86,7 @@ func (c *Client) getAccessToken() string {
 	c.token = token
 	return token.AccessToken
 }
+
+func (c *Client) GetToken() (*TokenResponse, time.Time) {
+	return &c.token, c.expiresAt
+}

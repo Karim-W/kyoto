@@ -83,7 +83,7 @@ func (m model) View() string {
 		PaddingBottom(2).
 		AlignHorizontal(lipgloss.Center).
 		AlignVertical(lipgloss.Center)
-	str := fmt.Sprintf("%s - %s\n %s", m.song, m.album, m.artist)
+	str := fmt.Sprintf("%s \n\n %s - %s", m.song, m.album, m.artist)
 	return style.Render(str)
 }
 
