@@ -35,7 +35,7 @@ func StartAuth() {
 			w.WriteHeader(http.StatusOK)
 			w.Write([]byte("ok"))
 		})
-		http.ListenAndServe(":8080", nil)
+		http.ListenAndServe(":9499", nil)
 	}()
 	urlBuilder := strings.Builder{}
 	_, err := urlBuilder.WriteString("https://accounts.spotify.com/authorize?")
@@ -59,7 +59,7 @@ func StartAuth() {
 	_, err = urlBuilder.WriteString(clientId)
 	assert(err)
 	_, err = urlBuilder.WriteString(
-		"&scope=user-read-currently-playing&redirect_uri=http://localhost:8080/callback&state=",
+		"&scope=user-read-currently-playing&redirect_uri=http://localhost:9499/callback&state=",
 	)
 	assert(err)
 	_, err = urlBuilder.WriteString(utils.GenerateRandomString(16))
